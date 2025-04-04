@@ -1,86 +1,110 @@
-    //Abraham Zuñiga
-    // ejercicio3
-    //programa para calculadora */
-    #include <stdio.h>
-    #include <math.h>
-    void main ()
+//Abraham Zuñiga
+// ejercicio3
+//programa para calculadora */
+#include <stdio.h>
+#include <math.h>
+
+int main() 
+{
+    int op;
+    int num1, num2;
+    double res;
+
+    do 
     {
-        int op, num1, num2, res;
-    
-        do
+        printf("Menu: \n");
+        printf("1.- Suma\n");
+        printf("2.- Resta\n");
+        printf("3.- Multiplicacion\n");
+        printf("4.- Division\n");
+        printf("5.- Raiz cuadrada\n");
+        printf("6.- Potencia\n");
+        printf("0.- Salida\n");
+        printf("Escoge una opcion: ");
+        scanf("%d", &op);
+
+        switch(op) 
         {
-            printf ("Menu: \n");
-            printf("escoge una opcion. \n");
-            printf("1.-suma\n");
-            printf("2.-resta\n");
-            printf("3.-multiplicacion\n");
-            printf("4.-division\n");
-            printf("5.-raiz cuadrada\n");
-            printf("6.-potencia\n");
-            printf("0.-salida\n");
-            scanf("%i", & op);
-    
-            while(op!=0 );
-            switch(op)
+            case 1:
+                printf("Dame un numero: ");
+                scanf("%d", &num1);
+                printf("Dame otro numero: ");
+                scanf("%d", &num2);
+                res = num1 + num2;
+                printf("Resultado: %.2f\n", res);
+                break;
+
+            case 2:
+                printf("Dame un numero: ");
+                scanf("%d", &num1);
+                printf("Dame otro numero: ");
+                scanf("%d", &num2);
+                res = num1 - num2;
+                printf("Resultado: %.2f\n", res);
+                break;
+
+            case 3:
+                printf("Dame un numero: ");
+                scanf("%d", &num1);
+                printf("Dame otro numero: ");
+                scanf("%d", &num2);
+                res = num1 * num2;
+                printf("Resultado: %.2f\n", res);
+                break;
+
+            case 4:
+                printf("Dame un numero: ");
+                scanf("%d", &num1);
+                printf("Dame otro numero: ");
+                scanf("%d", &num2);
+                if(num2 != 0) 
                 {
-                    clase1:
-                    printf("dame un numero: ");
-                    scanf("%i",&num1);
-                    printf ("dame otro numero: ");
-                    scanf("%i",&num2);
-                    res = num1+num2;
-                    break;
-                    clase2:
-                    printf("dame un numero: ");
-                    scanf("%i",&num1);
-                    printf ("dame otro numero: ");
-                    scanf("%i",&num2);
-                    res = num1-num2;
-                    break;
-                    
-                    clase3:
-                    printf("dame un numero: ");
-                    scanf("%i",&num1);
-                    printf ("dame otro numero: ");
-                    scanf("%i",&num2);
-                    res = num1*num2;
-                    break;
-                    
-                    clase4:
-                    printf("dame un numero: ");
-                    scanf("%i",&num1);
-                    printf ("dame otro numero: ");
-                    scanf("%i",&num2);
-                    res = num1/num2;
-                    break;
-                    
-                    clase5:
-                    printf("dame un numero: ");
-                    scanf("%i",&num1);
-                    res = sqrt (num1);
-                    break;
-                    
-                    clase6:
-                    printf("dame una base: ");
-                    scanf("%i",&num1);
-                    printf ("dame un exponente: ");
-                    scanf("%i",&num2);
-                    res = pow (num1, num2);
-                    break;
+                    res = (double)num1 / num2;
+                    printf("Resultado: %.2f\n", res);
+                } 
+                else 
+                {
+                    printf("Error: División entre cero no permitida.\n");
                 }
-            printf ("El resultado de la operacion es: %i\n",res);
-            printf("\n\n");
-            printf ("Menu: \n");
-            printf("escoge una opcion. \n");
-            printf("1.-suma\n");
-            printf("2.-resta\n");
-            printf("3.-multiplicacion\n");
-            printf("4.-division\n");
-            printf("5.-raiz cuadrada\n");
-            printf("6.-potencia\n");
-            printf("0.-salida\n");
-            scanf("%i", &op);
+                break;
+
+            case 5:
+                printf("Dame un numero: ");
+                scanf("%d", &num1);
+                if(num1 >= 0) 
+                {
+                    res = sqrt(num1);
+                    printf("Resultado: %.2f\n", res);
+                } 
+                else 
+                {
+                    printf("Error: Raíz de número negativo.\n");
+                }
+                break;
+
+            case 6:
+                printf("Dame una base: ");
+                scanf("%d", &num1);
+                printf("Dame un exponente: ");
+                scanf("%d", &num2);
+                res = pow(num1, num2);
+                printf("Resultado: %.2f\n", res);
+                break;
+
+            case 0:
+                printf("Saliendo del programa...\n");
+                break;
+
+            default:
+                printf("Opción inválida.\n");
+                break;
         }
+
+        printf("\n");
+
+    } 
     
-        while (op!=0);
-    }
+    while(op != 0);
+
+    return 0;
+}
